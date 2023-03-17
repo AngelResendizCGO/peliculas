@@ -1,0 +1,8 @@
+<ion-slides [options]="slideOpts">
+  <ion-slide *ngFor="let pelicula of peliculas">
+    <!--<h1>{{pelicula.backdrop_path}}</h1>-->
+    <ion-card >
+      <img class="poster" [src]="pelicula.poster_path | imagen:'w500'">
+    </ion-card>
+  </ion-slide>
+</ion-slides>

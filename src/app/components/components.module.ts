@@ -13,9 +13,9 @@ import { DetalleComponent } from './detalle/detalle.component';
   entryComponents: [
     DetalleComponent
   ],
-  declarations: [SlideshowBackdropComponent, SlideshowPosterComponent, SlideshowParesComponent],
+  declarations: [SlideshowBackdropComponent, DetalleComponent, SlideshowPosterComponent, SlideshowParesComponent],
   exports: [
-    SlideshowBackdropComponent, SlideshowPosterComponent, SlideshowParesComponent
+    SlideshowBackdropComponent, DetalleComponent, SlideshowPosterComponent, SlideshowParesComponent
   ],
   imports: [
     CommonModule,

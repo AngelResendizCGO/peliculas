@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Creditos, PeliculaDetalles, RespuestaMDB } from '../interfaces/interfaces';
+import { Creditos, Genre, PeliculaDetalles, RespuestaMDB } from '../interfaces/interfaces';
 import { environment } from 'src/environments/environment';
 
 const URL = environment.url;
@@ -12,6 +12,7 @@ const apiKey = environment.apikey;
 export class MoviesService {
 
   private popularesPage = 0;
+  generos: Genre[] = [];
 
   constructor( private http: HttpClient ) { }
 
@@ -61,6 +62,20 @@ export class MoviesService {
 
   getSearchPelicula(search: string){
     return this.ejecutarQuery<RespuestaMDB>(`/search/movie?query=${search}`);
+  }
+
+  cargarGeneros(): Promise<Genre[]>{
+
+    return new Promise <Genre[]> (resolve =>{
+      this.ejecutarQuery('/genre/movie/list?a=1')
+      .subscribe((resp: any) => {
+        this.generos = resp['genres'] as Genre[];
+        // console.log(this.generos);
+        resolve(this.generos);
+      });
+      
+    });
+
   }
 
 }

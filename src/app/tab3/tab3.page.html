@@ -1,3 +1,39 @@
 <ion-content>
+
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col>
+          <h3>Peliculas Favoritas
+          </h3>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <!-- <ion-grid fixed>
+      <ion-row>
+        <ion-col size="6" *ngFor="let pelicula of peliculas">
+          <ion-card (click)="detallePelicula(pelicula.id)">
+            <img [src]="pelicula.poster_path | imagen">
+            <ion-card-header>
+              <ion-card-subtitle>{{pelicula.release_date}}</ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content>
+              <h2>{{pelicula.title}}</h2> 
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid> -->
+
+    <div *ngFor="let pelicula of favoritoGenero">
+      <ion-grid *ngIf="pelicula.pelis.length > 0">
+        <ion-row>
+          <ion-col>
+            <h4>{{pelicula.genero}}</h4>
+          </ion-col>
+        </ion-row>
+        <app-slideshow-poster [peliculas]="pelicula.pelis"></app-slideshow-poster>
+      </ion-grid>
+    </div>
   
 </ion-content>

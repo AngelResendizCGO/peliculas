@@ -79,7 +79,7 @@ export interface PeliculaDetalles {
     origin_country: string;
   }
   
-  interface Genre {
+  export interface Genre {
     id: number;
     name: string;
   }
@@ -127,3 +127,5 @@ export interface Cast {
   credit_id: string;
   order: number;
 }
+
+//--------------------------------------------------------------------------------------------------
